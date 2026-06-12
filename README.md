@@ -30,6 +30,11 @@ foo@bar:~$ docker run --rm -v /app/node_modules \
                            --name vite-app foo/bar:latest
 ```
 
+4. Adding Vitest, making changes for it, adding dummy tests
+``` bash
+foo@bar:~$ npm install -D vitest jsdom @testing-library/react @testing-library/jest-dom
+foo@bar:~$ npx vitest
+```
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
