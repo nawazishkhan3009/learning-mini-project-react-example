@@ -35,6 +35,13 @@ foo@bar:~$ docker run --rm -v /app/node_modules \
 foo@bar:~$ npm install -D vitest jsdom @testing-library/react @testing-library/jest-dom
 foo@bar:~$ npx vitest
 ```
+
+5. Added Multi-stage production-like Dockerfile
+``` bash
+foo@bar:~$ docker build . -t vite-app-build-nginx:latest
+foo@bar:~$ docker run -p 8080:80 --rm vite-app-build-nginx
+```
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
