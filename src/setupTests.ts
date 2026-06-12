@@ -1,3 +1,4 @@
+import { vi } from 'vitest'
 import '@testing-library/jest-dom'
 
 vi.mock('./assets/react.svg', () => ({
