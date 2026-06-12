@@ -8,3 +8,11 @@ services:
       - ./:/app
     ports:
       - 5173:5173
+  vite-tests:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    volumes:
+      - /app/node_modules
+      - ./:/app
+    command: ["npm", "run", "test"]
