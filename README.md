@@ -42,6 +42,10 @@ foo@bar:~$ docker build . -t vite-app-build-nginx:latest
 foo@bar:~$ docker run -p 8080:80 --rm vite-app-build-nginx
 ```
 
+6. Trying out Travis CI
+Created a Travis CI account, connected this repo from Github to Travis CI, added .travis.yml file.
+Updated Dockerfile.dev to include the steps to install Vitest.
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
