@@ -1,0 +1,28 @@
+verison: 2.1
+
+jobs:
+  test:
+    machine: true
+
+    steps:
+      - checkout
+
+      - run:
+          name : Build Docker image
+          command: |
+            docker build -t nawnwa/vite-react-app-circleci \
+              -f Dockerfile.dev .
+      
+      - run:
+          name: Run Vitest tests
+          command: |
+            docker run nawnwa/vite-react-app-circleci \
+              npm run test -- --run
+
+
+workflows:
+  version: 2
+
+  test-workflow:
+    jobs:
+      - test
