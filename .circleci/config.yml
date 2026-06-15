@@ -18,9 +18,43 @@ jobs:
           command: |
             docker run nawnwa/vite-react-app-circleci \
               npm run test -- --run
+      
 
+  deploy-aws:
+    machine: true
+
+    steps:
+      - checkout
+
+      - run:
+          name: Install EB CLI
+          command: pip install --user awsebcli
+
+      - run:
+          name: Configure AWS credentials
+          command: |
+            mkdir -p ~/.aws
+            echo "[default]" > ~/.aws/credentials
+            echo "aws_access_key_id=$AWS_ACCESS_KEY_ID" >> ~/.aws/credentials
+            echo "aws_secret_access_key=$AWS_SECRET_ACCESS_KEY" >> ~/.aws/credentials
+
+      - run:
+          name: Initialize EB app context
+          command: |
+            eb init react-vite-app \
+              --platform docker \
+              --region $AWS_REGION || true
+        
+      - run:
+          name: Deploy to Elastic Beanstalk
+          command: |
+            eb use React-vite-docker-env
+            eb deploy
 
 workflows:
   test-workflow:
     jobs:
-      - test 
+      - test
+      - deploy-aws:
+          requires:
+            - test

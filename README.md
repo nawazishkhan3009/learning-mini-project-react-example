@@ -49,6 +49,14 @@ Updated Dockerfile.dev to include the steps to install Vitest.
 7. Switched to CircleCI
 Created a CircleCI account, connected the repo, added .circleci/config.yml.
 
+8. Added a deployment to AWS
+Created an AWS account and
+    - Created a new ElasticBeanstalk(EB) Docker App and Env: 
+        - App: react-vite-docker 
+        - Env: React-vite-docker-env
+    - Created new IAM user with access key credentials to allow CircleCI to access EB
+      - Next: Change it to Role and OpenID Connect (OIDC)
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
