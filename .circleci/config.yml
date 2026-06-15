@@ -23,8 +23,4 @@ jobs:
 workflows:
   test-workflow:
     jobs:
-      - test
-          filters:
-            paths:
-              ignore:
-                - README.md        
+      - test 
