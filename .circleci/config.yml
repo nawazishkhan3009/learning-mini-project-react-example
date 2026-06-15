@@ -43,7 +43,7 @@ jobs:
       - run:
           name: Initialize EB app context
           command: |
-            eb init react-vite-app \
+            eb init react-vite-docker \
               --platform docker \
               --region $AWS_REGION || true
         
