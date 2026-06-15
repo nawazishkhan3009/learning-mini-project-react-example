@@ -28,7 +28,9 @@ jobs:
 
       - run:
           name: Install EB CLI
-          command: pip install --user awsebcli
+          command: |
+            pip install --user awsebcli
+            echo 'export PATH=$HOME/.local/bin:$PATH' >> $BASH_ENV
 
       - run:
           name: Configure AWS credentials
@@ -52,7 +54,7 @@ jobs:
             eb deploy
 
 workflows:
-  test-workflow:
+  test-then-deploy-workflow:
     jobs:
       - test
       - deploy-aws:
