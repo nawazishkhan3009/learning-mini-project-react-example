@@ -1,4 +1,4 @@
-verison: 2.1
+version: 2.1
 
 jobs:
   test:
@@ -21,8 +21,10 @@ jobs:
 
 
 workflows:
-  version: 2
-
   test-workflow:
     jobs:
       - test
+          filters:
+            paths:
+              ignore:
+                - README.md        

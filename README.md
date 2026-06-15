@@ -42,9 +42,12 @@ foo@bar:~$ docker build . -t vite-app-build-nginx:latest
 foo@bar:~$ docker run -p 8080:80 --rm vite-app-build-nginx
 ```
 
-6. Trying out Travis CI
+6. Trying out Travis CI (not free anymore, not used)
 Created a Travis CI account, connected this repo from Github to Travis CI, added .travis.yml file.
 Updated Dockerfile.dev to include the steps to install Vitest.
+
+7. Switched to CircleCI
+Created a CircleCI account, connected the repo, added .circleci/config.yml.
 
 # React + TypeScript + Vite
 
